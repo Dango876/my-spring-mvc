@@ -1,68 +1,20 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Title</title>-->
-<!--</head>-->
-<!--<body>-->
-<!--<table>-->
-<!--    <tr>-->
-<!--        <th>Model</th>-->
-<!--        <th>Year</th>-->
-<!--        <th>Price</th>-->
-<!--    </tr>-->
-<!--    <tr th:each="car: ${cars}">-->
-<!--        <td th:text="${car.model}"></td>-->
-<!--        <td th:text="${car.year}"></td>-->
-<!--        <td th:text="${car.price}"></td>-->
-<!--    </tr>-->
-<!--</table>-->
-<!--</body>-->
-<!--</html>-->
-
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Car List</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 50%;
-            margin: 20px auto;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-    </style>
+    <title>Cars</title>
 </head>
 <body>
-<h1 style="text-align: center;">Car List</h1>
-
-<!-- Отображение количества показанных машин -->
-<div style="text-align: center; margin-bottom: 20px;">
-    <span th:if="${cars.size() == 5}">Showing all cars</span>
-    <span th:if="${cars.size() < 5}">Showing <strong th:text="${cars.size()}"></strong> cars</span>
-</div>
-
 <table>
     <tr>
         <th>Model</th>
         <th>Year</th>
         <th>Price</th>
     </tr>
-    <tr th:each="car : ${cars}">
+    <tr th:each="car: ${cars}">
         <td th:text="${car.model}"></td>
         <td th:text="${car.year}"></td>
-        <td th:text="'$' + ${#numbers.formatDecimal(car.price, 1, 2, 'COMMA')}"></td>
+        <td th:text="${car.price}"></td>
     </tr>
 </table>
 </body>

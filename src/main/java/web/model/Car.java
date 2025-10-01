@@ -16,28 +16,28 @@ public class Car {
         this.price = price;
     }
 
+    public String getModel() {
+        return model;
+    }
+
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public int getYear() {
+        return year;
     }
 
     public void setYear(int year) {
         this.year = year;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
     public int getPrice() {
         return price;
     }
 
-    public int getYear() {
-        return year;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     @Override
@@ -45,7 +45,7 @@ public class Car {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return year == car.year && price == car.price && Objects.equals(model, car.model);
+        return Objects.equals(model, car.model) && year == car.year && price == car.price;
     }
 
     @Override
@@ -53,7 +53,6 @@ public class Car {
         return Objects.hash(model, year, price);
     }
 
-    @Override
     public String toString() {
         return "Car {" +
                "model='" + model +
@@ -61,4 +60,5 @@ public class Car {
                ", price=" + price +
                '}';
     }
+
 }
